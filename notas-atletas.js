@@ -19,8 +19,18 @@ let atletas = [
    
    function calcularMedia(atletas) {
     atletas.forEach(function(atleta){
-        let notas = atleta.notas.sort();
+        let notas = atleta.notas.sort(function(a,b){
+          if (a > b){
+            return 1
+          } else if (a < b){
+            return -1
+          } else{
+            return 0 
+          }
+        });
+        console.log(notas)
         let notasMeio = notas.slice(1,4)
+        console.log(notasMeio)
         let soma = notasMeio.reduce(function(total, atual){
             return total + atual
     })
